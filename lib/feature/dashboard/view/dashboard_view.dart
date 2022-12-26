@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import '../../../Core/routes.dart';
 import '../controler/dashboard_controller.dart';
 
 class DashboardView extends GetView<DashboardController> {
@@ -46,7 +47,8 @@ class DashboardView extends GetView<DashboardController> {
                           shape: StadiumBorder(),
                         ),
                         onPressed: () {
-                          controller.gotoLogin();
+                          // controller.gotoLogin();
+                          Get.toNamed(Routes.login);
                         },
                         child: Text(
                           'LOGIN',
