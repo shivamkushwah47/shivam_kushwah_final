@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "916922616602",
+    "project_id": "final-app-6ffbe",
+    "storage_bucket": "final-app-6ffbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916922616602:android:54d7bcb2af93eabfd6baa3",
+        "android_client_info": {
+          "package_name": "com.example.shivam_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916922616602-8lehfa721o8279up2m9d0v7h8u7freti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmsc8u1tkUkJBhKC1E4ptKnP37-uYGXAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916922616602-8lehfa721o8279up2m9d0v7h8u7freti.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916922616602:android:c48ae7ef4ced3b4ad6baa3",
+        "android_client_info": {
+          "package_name": "com.example.shivam_kushwah_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916922616602-8lehfa721o8279up2m9d0v7h8u7freti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmsc8u1tkUkJBhKC1E4ptKnP37-uYGXAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916922616602-8lehfa721o8279up2m9d0v7h8u7freti.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
