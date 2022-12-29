@@ -16,10 +16,10 @@ class Navfirst extends GetView<Navfirstcontroller> {
 
         backgroundColor: Colors.green,
         elevation: 0,
-        title: Text("Your Name",
+        title: Obx(()=>Text(controller.name.value,
         style: TextStyle(color: Colors.white,
         fontSize: 20),)
-      ),
+      )),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Obx(
@@ -74,7 +74,7 @@ class Navfirst extends GetView<Navfirstcontroller> {
                                               .profilepicpath
                                               .value)) as ImageProvider
                                           : const AssetImage(
-                                              'assets/image/join_us_image.webp'),
+                                              'assets/images/camera.webp'),
                                       radius: 30,
                                     )
                                   ],
@@ -86,7 +86,7 @@ class Navfirst extends GetView<Navfirstcontroller> {
                                     height: 57, //height of button
                                     width: 250, //width of button
                                     child: controller.issuccess.value == false
-                                        ? ElevatedButton(
+                                        ? ElevatedButton(     //timeIn button...
                                             style: ElevatedButton.styleFrom(
                                                 backgroundColor:
                                                     Colors.yellow.shade600,
@@ -106,17 +106,11 @@ class Navfirst extends GetView<Navfirstcontroller> {
                                                     20) //content padding inside button
                                                 ),
                                             onPressed: () {
-                                              // controller.name.value;
-                                              // controller.currentDate.value;
-                                              // controller.currentAddress.value;
-                                              // controller.currentTime.value;
                                               controller.takephoto(
                                                   ImageSource.camera);
                                               controller.issuccess.value = true;
                                               print('function cld');
-
-                                              // controller.logging();
-                                              //code to execute when this button is pressed.
+                                              controller.TimeIn();
                                             },
                                             child: Text("Time In",
                                                 style: TextStyle(
@@ -124,7 +118,9 @@ class Navfirst extends GetView<Navfirstcontroller> {
                                                     color: Colors.white,
                                                     fontWeight:
                                                         FontWeight.w700)))
-                                        : ElevatedButton(
+
+                                        : ElevatedButton(  //timeOut button...
+
                                             style: ElevatedButton.styleFrom(
                                                 backgroundColor:
                                                     Colors.yellow.shade600,
@@ -144,18 +140,9 @@ class Navfirst extends GetView<Navfirstcontroller> {
                                                     20) //content padding inside button
                                                 ),
                                             onPressed: () {
-                                              // controller.name.value;
-                                              // controller.currentDate.value;
-                                              // controller.currentAddress.value;
-                                              // controller.currentTime.value;
-                                              controller.takephoto(
-                                                  ImageSource.camera);
-                                              controller.issuccess.value =
-                                                  false;
-
-                                              print('function cld');
-
-                                              //code to execute when this button is pressed.
+                                              controller.takephoto(ImageSource.camera);
+                                              controller.issuccess.value =false;
+                                              controller.TimeOut();
                                             },
                                             child: Text("Time Out",
                                                 style: TextStyle(
@@ -203,6 +190,7 @@ class Navfirst extends GetView<Navfirstcontroller> {
                                               fontSize: 18,
                                               color: Colors.black)),
                                       Text(
+                                        textAlign: TextAlign.center,
                                         controller.currentAddress.value,
                                         style: TextStyle(
                                             fontSize: 15,

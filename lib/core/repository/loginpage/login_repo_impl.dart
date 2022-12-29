@@ -15,9 +15,8 @@ class LoginRepoImpl implements LoginRepo {
   }
 
   @override
-  Future<List<FetchDataResponse>?> fetchDataAPI(
-      String myNumber, String password) async {
-    final response = await _httpService.fetchDataAPIRequest(myNumber.toString(), password.toString());
+  Future<List<FetchDataResponse>?> fetchDataAPI(String myNumber, String password) async {
+    final response = await _httpService.fetchDataAPIRequest(myNumber, password);
 
     if (response.statusCode == 200) {
       return FetchDataResponseFromJson(response.toString());

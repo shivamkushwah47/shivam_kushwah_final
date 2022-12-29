@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dio/src/response.dart';
 import 'package:shivam_kushwah_final/httpServices/http_service.dart';
-
 import '../core/url_constant.dart';
 
 
@@ -34,6 +33,7 @@ class HttpServiceImpl implements HttpService {
   Future<Response> fetchDataAPIRequest(String myNumber, String password) async {
     Response response;
     try {
+      print("shivam  bhai");
       print('${URLConstant.baseUrl + URLConstant.fetchDataIntern}userName=$myNumber&password=$password');
       response = await _dio.get(
           '${URLConstant.baseUrl + URLConstant.fetchDataIntern}userName=$myNumber&password=$password');
@@ -43,5 +43,6 @@ class HttpServiceImpl implements HttpService {
     }
     return response;
   }
+
 
 }

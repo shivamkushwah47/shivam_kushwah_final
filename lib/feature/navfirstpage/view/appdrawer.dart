@@ -12,6 +12,7 @@ class AppDrawer extends StatelessWidget {
           child: ListView(
             children: [
               Container(
+                margin: EdgeInsets.all(8.0),
                 decoration:
                 BoxDecoration(color: Theme.of(context).primaryColor),
                 height: 80,

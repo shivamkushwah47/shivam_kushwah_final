@@ -8,7 +8,7 @@ class NavthirdBinding extends Bindings{
   void dependencies() {
     // TODO: implement dependencies
 
-    // Get.lazyPut(() => NavthirdController());
+    Get.lazyPut(()=>NavthirdController());
     Get.put(NavthirdController());
 
 

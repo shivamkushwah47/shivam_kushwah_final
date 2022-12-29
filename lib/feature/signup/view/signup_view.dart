@@ -151,22 +151,22 @@ class SignupView extends GetView<SignupController> {
                           ),
                         ],
                       )),
-                  // ElevatedButton(
-                  //     style: ElevatedButton.styleFrom(
-                  //       backgroundColor: Colors.blue,
-                  //       minimumSize: const Size.fromHeight(50),
-                  //       shape: StadiumBorder(), // NEW
-                  //     ),
-                  //     onPressed: () {
-                  //     Get.toNamed(Routes.navigationbar);
-                  //     },
-                  //     child: Text(
-                  //       'shortcut for navbar',
-                  //       style: TextStyle(
-                  //           fontSize: 20,
-                  //           fontWeight: FontWeight.w800,
-                  //           color: Colors.white),
-                  //     )),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        minimumSize: const Size.fromHeight(50),
+                        shape: StadiumBorder(), // NEW
+                      ),
+                      onPressed: () {
+                      Get.toNamed(Routes.navigationbar);
+                      },
+                      child: Text(
+                        'shortcut for navbar',
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.white),
+                      )),
                 ],
               ),
             ),

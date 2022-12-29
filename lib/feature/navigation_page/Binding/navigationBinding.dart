@@ -9,10 +9,10 @@ import 'package:shivam_kushwah_final/feature/navthirdpage/controller/navthird_co
 class NavigationBinding extends Bindings{
   @override
   void dependencies() {
+    Get.lazyPut(()=>NavthirdController());
     Get.put(NavigationController());
     Get.put(SignupRepoImpl());
     Get.put(Navfirstcontroller());
-    Get.put(NavthirdController());
 
   }
 

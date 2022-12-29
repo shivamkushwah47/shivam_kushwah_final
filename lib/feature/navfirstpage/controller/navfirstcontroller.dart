@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
@@ -11,13 +13,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class Navfirstcontroller extends GetxController {
 
-
-  // List<FetchDataResponse>internDataList = <FetchDataResponse>[].obs;
   final GeolocatorPlatform _geolocatorPlatform = GeolocatorPlatform.instance;
 
   var change = true.obs;
-
-
   var loader = true.obs;
 
   RxString email = "".obs;
@@ -30,22 +28,15 @@ class Navfirstcontroller extends GetxController {
   var currentAddress = "".obs;
   var currentDate = "".obs;
   var currentTime = "".obs;
-  var isprofilevalid = false.obs;
   var setimagepath = "".obs;
-  // late TimeRepo _flutterepo;
 
-
-  // Navfirstcontroller(){
-  //   _flutterepo = Get.find<TimeRepoImpl>();
-  // }
-
-
+  var isprofilevalid = false.obs;
 
   @override
   void onInit() async {
     getCurrentLatLong();
-    // printdata();
-    // todayDate();
+    todayDate();
+    printdata();
     super.onInit();
   }
 
@@ -79,28 +70,8 @@ class Navfirstcontroller extends GetxController {
     return "no address found";
   }
 
-  // TimeIn() async {
-  //   final response = await _flutterepo.flutterdataAPI(
-  //       id.value, currentDate.value, currentTime.value, currentAddress.value);
-  //   print("Response Successfully");
-  //   if (response != null) {
-  //     print("Navigate to login page");
-  //   }
-  // }
-  // TimeOut() async {
-  //   final response = await _flutterepo.flutterdataAPIOut(
-  //       id.value, currentDate.value, currentTime.value, currentAddress.value);
-  //   print("Response Successfully");
-  //   if (response != null) {
-  //     print("Navigate to login page");
-  //   }
-  // }
-
-
-
   printdata() async {
-    print("Good Work");
-    // final response = await SharedPreferences.getInstance();
+    print("sharec prefe. fun");
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     name.value = prefs.getString("name")!;
@@ -122,6 +93,8 @@ class Navfirstcontroller extends GetxController {
     currentTime.value = formattedTime;
     print(formattedDate);
   }
+
+
   //function for camera
   File? pickedfile;
   ImagePicker imagePicker = ImagePicker();
@@ -148,4 +121,37 @@ class Navfirstcontroller extends GetxController {
     profilepicpath.value = path;
     isImageSet.value = true;
   }
+  //post timein data on firebase with this func...
+  String attId = '';
+  TimeIn() {
+    var name1 = name.value;
+    var date = currentDate.value;
+    var location = currentAddress.value;
+    var time = currentTime.value;
+
+    Map<String, dynamic> userData = {
+      "name": name1,
+      "date": date,
+      "locationIn": location,
+      "timeIn": time,
+    };
+
+    FirebaseFirestore.instance.collection("attandance").add(userData).then((docRef) => attId = docRef.id);;
+    print("user created by firebase");
+  }
+
+  TimeOut() {
+
+    var location = currentAddress.value;
+    var time = currentTime.value;
+
+    Map<String, dynamic> userData = {
+      "locationOut": location,
+      "timeOut": time,
+    };
+
+    FirebaseFirestore.instance.collection("attandance").doc(attId).update(userData);
+    print("user created by firebase");
+  }
+
 }

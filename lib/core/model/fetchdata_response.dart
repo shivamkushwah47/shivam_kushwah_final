@@ -1,29 +1,36 @@
 class FetchDataResponse {
-
+  int? response;
+  String? id;
   String? name;
-  String? contactName;
   String? emailId;
   String? password;
-  String? number;
+  String? phone;
 
   FetchDataResponse(
-      { this.name, this.contactName, this.emailId, this.password,this.number});
+      {this.response,
+        this.id,
+        this.name,
+        this.emailId,
+        this.password,
+        this.phone});
 
   FetchDataResponse.fromJson(Map<String, dynamic> json) {
+    response = json['response'];
+    id = json['Id'];
     name = json['Name'];
-    contactName = json['ContactName'];
     emailId = json['EmailId'];
     password = json['password'];
-    number = json['Number'];
+    phone = json['phone'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['response'] = this.response;
+    data['Id'] = this.id;
     data['Name'] = this.name;
-    data['ContactName'] = this.contactName;
     data['EmailId'] = this.emailId;
     data['password'] = this.password;
-    data['Number'] = this.number;
+    data['phone'] = this.phone;
     return data;
   }
 }
